@@ -33,3 +33,9 @@ taskForm.addEventListener("submit", (e) => {
 
 // Check if the task being added to the taskData array already exists or not
 const dataArrIndex = taskData.findIndex((item) => item.id === currentTask.id);
+const taskObj = {
+  id: `${titleInput.value.toLowerCase().split(" ").join("-")}-${Date.now()}`,
+  title: titleInput.value,
+  date: dateInput.value,
+  description: descriptionInput.value,
+  };
