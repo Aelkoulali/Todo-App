@@ -28,9 +28,7 @@ discardBtn.addEventListener("click", () => {
 // Get the values from the input fields, save them into the taskData array, and display them on the page
 taskForm.addEventListener("submit", (e) => {
     e.preventDefault(); // Stop the browser from refreshing the page
-    
-});  
-
+   
 // Check if the task being added to the taskData array already exists or not
 const dataArrIndex = taskData.findIndex((item) => item.id === currentTask.id);
 const taskObj = {
@@ -39,3 +37,11 @@ const taskObj = {
   date: dateInput.value,
   description: descriptionInput.value,
   };
+
+  if(dataArrIndex === -1){
+    taskData.unshift(taskObj);
+  }
+  taskData.forEach(({id, title, date, description}));
+
+
+  });
