@@ -30,7 +30,12 @@ openTaskFormBtn.addEventListener("click", () =>
   );
 
 closeTaskFormBtn.addEventListener("click", () => {
-    confirmCloseDialog.showModal(); // display a modal with the Discard and Cancel buttons
+  const formInputsContainValues = titleInput.value || dateInput.value || descriptionInput.value; // Check if values exist
+  if(formInputsContainValues) {
+  confirmCloseDialog.showModal(); // display a modal with the Discard and Cancel buttons
+  } else {
+    reset();
+  }
   }); 
 cancelBtn.addEventListener("click", () => confirmCloseDialog.close());
 discardBtn.addEventListener("click", () => {
