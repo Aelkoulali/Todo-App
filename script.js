@@ -11,6 +11,19 @@ const titleInput = document.getElementById("title-input");
 const dateInput = document.getElementById("date-input");
 const descriptionInput = document.getElementById("description-input");
 
+const taskData = [];
+let currentTask = {};
+
+// Reset Function
+const reset = () => {
+  titleInput.value = "";
+  dateInput.value = "";
+  descriptionInput.value = "";
+  taskForm.classList.toggle("hidden");
+  currentTask = {};
+
+}
+
 // Opening and closing the form modal
 openTaskFormBtn.addEventListener("click", () =>
     taskForm.classList.toggle("hidden")
@@ -54,8 +67,6 @@ const taskObj = {
     }
   );
   // Close the form modal to view the task 
-  taskForm.classList.toggle("hidden")
-
-
+  taskForm.classList.toggle("hidden");
 
   });
