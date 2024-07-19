@@ -50,9 +50,12 @@ const taskObj = {
       <button type="button" class="btn">Edit</button>
       <button type="button" class="btn">Delete</button>
       </div>      
-      ` )
-  }
-);
+    `)
+    }
+  );
+  // Close the form modal to view the task 
+  taskForm.classList.toggle("hidden")
+
 
 
   });
