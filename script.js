@@ -47,6 +47,13 @@ const updateTaskContainer = () => {
   );
 };
 
+// Delete Task Function
+const deleteTask = (buttonEl) => {
+  const dataArrIndex = taskData.findIndex((item) => item.id === buttonEl.parentElement.id
+  );
+
+};
+
 // Reset Function
 const reset = () => {
   titleInput.value = "";
