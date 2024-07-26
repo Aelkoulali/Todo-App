@@ -25,7 +25,10 @@ const addOrUpdateTask = () => {
 
   if (dataArrIndex === -1) {
     taskData.unshift(taskObj);
-  }
+  } else {
+    taskData[dataArrIndex] = taskObj;
+  };
+
   updateTaskContainer();
   reset();
 };
@@ -86,7 +89,8 @@ openTaskFormBtn.addEventListener("click", () =>
 
 closeTaskFormBtn.addEventListener("click", () => {
   const formInputsContainValues = titleInput.value || dateInput.value || descriptionInput.value; // Check if values exist
-  if(formInputsContainValues) {
+  const formInputValuesUpdated = titleInput.value !== currentTask.date ||descriptionInput.value !== currentTask.description; // Check if the values change
+  if(formInputsContainValues && formInputValuesUpdated ) {
   confirmCloseDialog.showModal(); // display a modal with the Discard and Cancel buttons
   } else {
     reset();
