@@ -59,7 +59,14 @@ const deleteTask = (buttonEl) => {
 // Edit Task Function 
 const editTask = (buttonEl) => {
   const dataArrIndex = taskData.findIndex((item) => item.id === buttonEl.parentElement.id);
-
+  currentTask = taskData[dataArrIndex];
+  titleInput.value = currentTask.title;
+  dateInput.value = currentTask.Date;
+  descriptionInput.value = currentTask.description;
+  addOrUpdateTaskBtn.innerText = "Update Task";
+  taskForm.classList.toggle("hidden");
+  currentTask = {};
+  
 };
 
 // Reset Function
