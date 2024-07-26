@@ -13,7 +13,7 @@ const descriptionInput = document.getElementById("description-input");
 
 const taskData = [];
 let currentTask = {};
-
+// Add Or Update Function
 const addOrUpdateTask = () => {
   const dataArrIndex = taskData.findIndex((item) => item.id === currentTask.id);
   const taskObj = {
@@ -29,6 +29,7 @@ const addOrUpdateTask = () => {
     taskData[dataArrIndex] = taskObj;
   };
 
+  localStorage.setItem("data", JSON.stringify(taskData)); // Persist Data once the user adds or update tasks 
   updateTaskContainer();
   reset();
 };
