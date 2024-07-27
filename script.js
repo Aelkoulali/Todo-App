@@ -11,8 +11,9 @@ const titleInput = document.getElementById("title-input");
 const dateInput = document.getElementById("date-input");
 const descriptionInput = document.getElementById("description-input");
 
-const taskData = [];
+const taskData = JSON.parse(localStorage.getItem("data")) || [];
 let currentTask = {};
+
 // Add Or Update Function
 const addOrUpdateTask = () => {
   const dataArrIndex = taskData.findIndex((item) => item.id === currentTask.id);
@@ -57,6 +58,8 @@ const deleteTask = (buttonEl) => {
   );
   buttonEl.parentElement.remove();
   taskData.splice(dataArrIndex, 1);
+  localStorage.setItem("data", JSON.stringify(taskData)); //Remove Task deleted from localStorage
+
 
 };
 
@@ -75,12 +78,17 @@ const editTask = (buttonEl) => {
 
 // Reset Function
 const reset = () => {
+  addOrUpdateTaskBtn.innerText ="Add Task";
   titleInput.value = "";
   dateInput.value = "";
   descriptionInput.value = "";
   taskForm.classList.toggle("hidden");
   currentTask = {};
 
+}
+
+if (taskData.length) {  
+  updateTaskContainer();
 }
 
 // Opening and closing the form modal
